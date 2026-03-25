@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 80px;
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.4);
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+}
+
+header.scrolled {
+  background: rgba(0,0,0,0.9);
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 300;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+section:first-of-type {
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section:first-of-type h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  margin: 0;
+}
+
+section:first-of-type p {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+section:first-of-type h5 {
+  margin-top: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+section div {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+section div div {
+  width: 260px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  transition: 0.4s;
+}
+
+section div div:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+section div div img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+section div div h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+section div div p {
+  padding: 0 10px 15px;
+}
+
+section p {
+  line-height: 1.8;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+iframe {
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  background: rgba(0,0,0,0.85);
+  letter-spacing: 1px;
+}
