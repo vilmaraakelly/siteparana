@@ -6,18 +6,20 @@
   box-sizing: border-box;
 }
 
-body, html {
-  font-family: 'Poppins', sans-serif;
-  color: white;
+html{
   scroll-behavior: smooth;
 }
 
-body {
-  padding-top: 80px;
+body{
+  font-family: 'Poppins', sans-serif;
+  color: white;
   overflow-x: hidden;
+  padding-top: 80px;
 }
 
-video {
+/* Vídeo */
+
+video{
   position: fixed;
   top: 0;
   left: 0;
@@ -28,15 +30,19 @@ video {
   filter: brightness(0.4);
 }
 
-.overlay {
+.overlay{
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.4);
   z-index: -1;
 }
 
-header {
+/* Header */
+
+header{
   position: fixed;
   top: 0;
   left: 0;
@@ -48,32 +54,36 @@ header {
   background: rgba(0,0,0,0.7);
   backdrop-filter: blur(10px);
   z-index: 999;
+  transition: 0.4s;
 }
 
-header h1 {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 2px;
-  font-size: 35px;
-}
-
-header.scrolled {
+header.scrolled{
   background: rgba(0,0,0,0.9);
 }
+
+header h1{
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+
+/* Navegação */
 
 nav{
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
-nav a {
+nav a{
   color: white;
-  margin-left: 20px;
   text-decoration: none;
   font-weight: 300;
   position: relative;
+  transition: 0.3s;
 }
 
-nav a::after {
+nav a::after{
   content: "";
   width: 0;
   height: 2px;
@@ -84,59 +94,62 @@ nav a::after {
   transition: 0.3s;
 }
 
-nav a:hover::after {
+nav a:hover::after{
   width: 100%;
 }
 
-section:first-of-type {
-  height: calc(100vh - 80px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
+/* Seções */
 
-section:first-of-type h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 60px;
-  margin-bottom: 15px;
-}
-
-section:first-of-type p {
-  font-size: 20px;
-  margin-bottom: 15px;
-  max-width: 700px;
-}
-
-section:first-of-type h5 {
-  margin-top: 10px;
-  font-weight: 300;
-  letter-spacing: 2px;
-}
-
-section {
+section{
   padding: 80px 20px;
   max-width: 1100px;
   margin: auto;
 }
 
-section h2 {
+section h2{
   font-family: 'Playfair Display', serif;
   font-size: 40px;
   margin-bottom: 30px;
   text-align: center;
 }
 
-#turismo > div{
+/* Primeira seção */
+
+section:first-of-type{
+  height: calc(100vh - 80px);
   display: flex;
-  gap: 25px;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
 }
 
-#turismo > div > div {
+section:first-of-type h2{
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+section:first-of-type p{
+  font-size: 20px;
+  max-width: 700px;
+  margin-bottom: 15px;
+}
+
+section:first-of-type h5{
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* Cards Turismo */
+
+.cards{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.card{
   width: 300px;
   background: rgba(255,255,255,0.08);
   border-radius: 15px;
@@ -145,32 +158,36 @@ section h2 {
   transition: 0.4s;
 }
 
-#turismo > div > div:hover {
+.card:hover{
   transform: translateY(-10px) scale(1.03);
 }
 
-#turismo img {
+.card img{
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
 
-#turismo h3 {
+.card h3{
   font-family: 'Playfair Display', serif;
-  padding: 15px 15px 5px;
   font-size: 24px;
+  padding: 15px 15px 5px;
 }
 
-#turismo p {
+.card p{
   padding: 0 15px 20px;
   text-align: left;
 }
 
-section p {
+/* Texto */
+
+section p{
   line-height: 1.9;
   font-size: 16px;
   text-align: justify;
 }
+
+/* Blocos */
 
 #historia,
 #contos,
@@ -180,6 +197,8 @@ section p {
   backdrop-filter: blur(10px);
   margin-bottom: 40px;
 }
+
+/* Podcast */
 
 .caixa-audio{
   background: rgba(255,255,255,0.08);
@@ -193,47 +212,40 @@ section p {
 }
 
 .caixa-audio h3{
-  margin-bottom: 15px;
   font-family: 'Playfair Display', serif;
   font-size: 24px;
-}
-
-.caixa-audio input{
-  margin-bottom: 20px;
-  color: white;
-  width: 100%;
+  margin-bottom: 15px;
 }
 
 .caixa-audio audio{
   width: 100%;
-  border-radius: 10px;
 }
 
-.fade {
+/* Fade */
+
+.fade{
   opacity: 0;
   transform: translateY(40px);
   transition: 1s;
 }
 
-.fade.show {
+.fade.show{
   opacity: 1;
   transform: translateY(0);
 }
 
-iframe {
-  border-radius: 10px;
-  margin-top: 20px;
-  width: 100%;
-}
+/* Footer */
 
-footer {
+footer{
   text-align: center;
   padding: 15px;
-  font-size: 14px;
   background: rgba(0,0,0,0.85);
+  font-size: 14px;
   letter-spacing: 1px;
   margin-top: 30px;
 }
+
+/* Responsivo */
 
 @media(max-width: 768px){
 
@@ -249,7 +261,7 @@ footer {
   }
 
   section:first-of-type h2{
-    font-size: 40px;
+    font-size: 42px;
   }
 
   section:first-of-type p{
@@ -260,7 +272,7 @@ footer {
     font-size: 32px;
   }
 
-  #turismo > div > div{
+  .card{
     width: 100%;
     max-width: 350px;
   }
