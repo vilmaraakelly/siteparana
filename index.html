@@ -2,9 +2,14 @@
 <html lang="pt-br">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Turismo Paraná</title>
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -28,7 +33,7 @@
 
   </header>
 
-  <section>
+  <section class="fade">
 
     <h2>Descubra o Paraná</h2>
 
@@ -40,105 +45,97 @@
 
   </section>
 
-  <section id="turismo">
+  <section id="turismo" class="fade">
 
     <h2>Turismo</h2>
 
-    <div>
+    <div class="cards">
 
-      <div>
-        <img src="https://www.civitatis.com/f/brasil/foz-de-iguazu/foz-de-iguazu.jpg">
+      <div class="card">
+
+        <img src="https://www.civitatis.com/f/brasil/foz-de-iguazu/foz-de-iguazu.jpg" alt="Foz do Iguaçu">
 
         <h3>Foz do Iguaçu</h3>
 
         <p>
-          Cataratas impressionantes e paisagem bela.
+          Cataratas impressionantes e paisagens inesquecíveis.
         </p>
+
       </div>
 
-      <div>
-        <img src="https://portaltriptips.com.br/wp-content/uploads/2025/10/Atracoes-de-Curitiba-Special-Parana.jpg">
+      <div class="card">
+
+        <img src="https://portaltriptips.com.br/wp-content/uploads/2025/10/Atracoes-de-Curitiba-Special-Parana.jpg" alt="Curitiba">
 
         <h3>Curitiba</h3>
 
         <p>
-          Urbanismo moderno e jardim encantador.
+          Urbanismo moderno, cultura e jardins encantadores.
         </p>
+
       </div>
 
-      <div>
-        <img src="https://cdn-clubecandeias.s3.sa-east-1.amazonaws.com/uploads/images/melhores-praias-litoral-do-parana-clube-candeias-guaratuba.jpeg">
+      <div class="card">
+
+        <img src="https://cdn-clubecandeias.s3.sa-east-1.amazonaws.com/uploads/images/melhores-praias-litoral-do-parana-clube-candeias-guaratuba.jpeg" alt="Litoral do Paraná">
 
         <h3>Litoral</h3>
 
         <p>
-          Praias com paisagens encantadoras.
+          Praias e paisagens naturais surpreendentes.
         </p>
+
       </div>
 
     </div>
 
   </section>
 
-  <section id="historia">
+  <section id="historia" class="fade">
 
     <h2>História</h2>
 
     <p>
       No século XVI, as terras que hoje fazem parte do estado do Paraná pertenciam à Capitania de São Vicente.
-      Nessa época, a região era visitada por exploradores europeus em busca de madeira de lei.
+      A região era visitada por exploradores europeus em busca de madeira de lei.
 
-      Somente no século XVII, em 1660, foi iniciada a colonização com a fundação da Vila de Paranaguá.
+      Em 1660, iniciou-se a colonização com a fundação da Vila de Paranaguá.
+      Curitiba também surgiu nesse período e se tornou um importante centro urbano.
 
-      Curitiba, atual capital do estado, também foi fundada logo no início da colonização das terras paranaenses.
+      A descoberta de ouro atraiu portugueses para o litoral e interior.
+      Mais tarde, a criação de gado e o Caminho de Viamão impulsionaram o desenvolvimento regional.
 
-      A descoberta de ouro em Paranaguá atraiu os portugueses para o litoral e o interior.
-
-      Mais tarde, com a descoberta do ouro em Minas Gerais, a exploração na região diminuiu.
-
-      Grandes extensões de terra passaram a ser utilizadas para criação de gado.
-
-      O Caminho de Viamão foi criado para transportar gado e mulas entre o sul do país e São Paulo.
-
-      Os tropeiros ajudaram na formação de diversos municípios do Paraná.
-
-      Em 1853, a Província de São Paulo foi desmembrada, dando origem ao Paraná.
-
-      A palavra Paraná tem origem no guarani e significa “rio caudaloso”.
-
-      Com a imigração europeia, alemães, poloneses e italianos chegaram ao estado.
-
-      No final do século XIX, a erva-mate, o café e a madeira impulsionaram a economia paranaense.
+      Em 1853, o Paraná foi desmembrado da Província de São Paulo.
+      A imigração europeia trouxe alemães, poloneses e italianos, fortalecendo a cultura e economia do estado.
     </p>
 
   </section>
 
-  <section id="contos">
+  <section id="contos" class="fade">
 
     <h2>Contos</h2>
 
     <p>
-      Dizem que nas antigas estradas dos tropeiros, viajantes ouviam sons misteriosos vindos das matas durante a noite.
+      Dizem que antigos tropeiros ouviam sons misteriosos vindos das matas durante a noite.
 
-      Algumas lendas falam de espíritos que protegiam os caminhos e guiavam aqueles que se perdiam na serra.
+      Algumas lendas falam de espíritos que guiavam viajantes perdidos nas serras do Paraná.
 
-      Em Paranaguá, pescadores contam histórias sobre luzes estranhas aparecendo sobre o mar em noites silenciosas.
-
-      O Paraná guarda mistérios, culturas e histórias passadas de geração em geração.
+      Histórias, lendas e mistérios fazem parte da cultura paranaense até os dias atuais.
     </p>
 
   </section>
 
-  <section id="podcast">
+  <section id="podcast" class="fade">
 
     <h2>Podcast</h2>
 
     <div class="caixa-audio">
-    
-    <audio controls>
-    <source src="podcast.m4a" type="audio/mp4">
-  </audio>
 
+      <h3>Podcast Paraná</h3>
+
+      <audio controls>
+        <source src="podcast.m4a" type="audio/mp4">
+      </audio>
 
     </div>
 
@@ -149,6 +146,8 @@
     <p>© 2026 Turismo Paraná</p>
 
   </footer>
+
+  <script src="script.js"></script>
 
 </body>
 
