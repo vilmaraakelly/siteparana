@@ -27,35 +27,31 @@ video{
   z-index: -2;
 }
 
-/* Escurecer fundo */
+/* Escurecimento */
 .overlay{
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.45);
   z-index: -1;
 }
 
-/* Cabeçalho */
+/* Header */
 header{
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   padding: 20px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
   z-index: 1000;
 }
 
 .logo{
-  font-family: 'Playfair Display', serif;
   font-size: 2rem;
+  font-family: 'Playfair Display', serif;
   font-weight: bold;
 }
 
@@ -96,14 +92,14 @@ nav a:hover{
   margin-bottom: 30px;
 }
 
-/* BOTÃO */
+/* BOTÕES */
 button{
   background: linear-gradient(135deg, #ff9800, #ff5722);
-  border: none;
   color: white;
-  padding: 14px 32px;
-  font-size: 16px;
+  border: none;
+  padding: 14px 30px;
   border-radius: 35px;
+  font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
   font-family: 'Poppins', sans-serif;
@@ -112,63 +108,96 @@ button{
 
 button:hover{
   transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 /* SEÇÕES */
-section{
-  padding: 80px 10%;
+.conteudo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 100px 10%;
   background: rgba(0,0,0,0.55);
 }
 
-section h2{
+/* TEXTOS LATERAIS */
+.texto{
+  flex: 1;
+}
+
+.texto h2{
   font-size: 2.5rem;
   margin-bottom: 20px;
-  text-align: center;
   font-family: 'Playfair Display', serif;
+  text-align: left;
 }
 
-section p{
+.texto p{
   font-size: 1.1rem;
   line-height: 1.8;
-  text-align: center;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
-/* IMAGENS */
+/* IMAGENS LADO A LADO */
 .imagens{
+  flex: 1;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 40px;
+  align-items: center;
+  gap: 15px;
 }
 
 .imagens img{
-  width: 300px;
-  height: 200px;
+  width: 200px;
+  height: 300px;
   object-fit: cover;
   border-radius: 20px;
   transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .imagens img:hover{
   transform: scale(1.05);
 }
 
+/* CONTATO */
+.contato{
+  text-align: center;
+  padding: 100px 20px;
+  background: rgba(0,0,0,0.65);
+}
+
+.contato h2{
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+.contato p{
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
 /* RESPONSIVO */
-@media(max-width: 768px){
+@media(max-width: 900px){
+
+  .conteudo{
+    flex-direction: column;
+  }
+
+  .texto h2,
+  .texto p{
+    text-align: center;
+  }
+
+  .imagens{
+    flex-wrap: wrap;
+  }
 
   .hero h1{
-    font-size: 2.5rem;
-  }
-
-  .hero p{
-    font-size: 1rem;
-  }
-
-  .imagens img{
-    width: 90%;
-    height: auto;
+    font-size: 2.7rem;
   }
 
   header{
