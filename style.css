@@ -45,27 +45,30 @@ header{
     top:0;
     left:0;
     width:100%;
-    padding:20px 40px;
+    padding:15px 25px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
     background:rgba(0,0,0,.85);
     backdrop-filter:blur(15px);
     z-index:1000;
+    gap:30px;
 }
 
 header h1{
     font-family:'Cinzel',serif;
     color:#d4af37;
-    font-size:2.2rem;
+    font-size:3rem;
+    flex-shrink:0;
 }
 
 nav{
     display:flex;
-    gap:18px;
+    align-items:center;
+    gap:15px;
     overflow-x:auto;
     white-space:nowrap;
     scrollbar-width:none;
+    flex:1;
 }
 
 nav::-webkit-scrollbar{
@@ -78,27 +81,9 @@ nav a{
     transition:.3s;
     position:relative;
     font-family:'Cinzel',serif;
+    font-size:1rem;
+    flex-shrink:0;
 }
-
-nav a:hover{
-    color:#d4af37;
-}
-
-nav a::after{
-    content:'';
-    position:absolute;
-    left:0;
-    bottom:-4px;
-    width:0;
-    height:2px;
-    background:#d4af37;
-    transition:.3s;
-}
-
-nav a:hover::after{
-    width:100%;
-}
-
 section{
     max-width:1200px;
     margin:auto;
