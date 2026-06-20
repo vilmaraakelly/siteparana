@@ -1,70 +1,180 @@
 // ======================
-// EFEITO FADE E HEADER
+// MENU HAMBÚRGUER
 // ======================
 
-const elements = document.querySelectorAll('.fade');
-const header = document.querySelector('header');
+const menuToggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
 
-window.addEventListener('scroll', () => {
+if(menuToggle && menu){
 
-    elements.forEach((el) => {
+    menuToggle.addEventListener("click", () => {
+        menu.classList.toggle("active");
+    });
 
-        const top = el.getBoundingClientRect().top;
+    document.addEventListener("click", (e) => {
 
-        if(top < window.innerHeight - 100){
-            el.classList.add('show');
+        if(
+            !menu.contains(e.target) &&
+            !menuToggle.contains(e.target)
+        ){
+            menu.classList.remove("active");
         }
 
     });
 
-    if(window.scrollY > 50){
+    document.querySelectorAll("#menu a").forEach(link => {
 
-        header.classList.add('scrolled');
+        link.addEventListener("click", () => {
+            menu.classList.remove("active");
+        });
 
-    }else{
+    });
 
-        header.classList.remove('scrolled');
+}
+
+// ======================
+// HEADER + FADE
+// ======================
+
+const elementos = document.querySelectorAll(".fade");
+const header = document.querySelector("header");
+
+function revelar(){
+
+    elementos.forEach(el => {
+
+        const topo = el.getBoundingClientRect().top;
+
+        if(topo < window.innerHeight - 100){
+
+            el.classList.add("show");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", () => {
+
+    revelar();
+
+    if(header){
+
+        if(window.scrollY > 50){
+
+            header.classList.add("scrolled");
+
+        }else{
+
+            header.classList.remove("scrolled");
+
+        }
 
     }
 
 });
 
-// Ativa os elementos já visíveis ao carregar a página
+revelar();
 
-elements.forEach((el) => {
+// ======================
+// QUIZ AVANÇADO
+// ======================
 
-    const top = el.getBoundingClientRect().top;
+const perguntas = [
 
-    if(top < window.innerHeight - 100){
-        el.classList.add('show');
+{
+    pergunta:"Qual é a capital do Paraná?",
+    respostas:["Londrina","Curitiba","Maringá","Paranaguá"],
+    correta:1
+},
+
+{
+    pergunta:"Quantos municípios possui o Paraná?",
+    respostas:["399","250","497","350"],
+    correta:0
+},
+
+{
+    pergunta:"Qual é o principal cartão-postal do estado?",
+    respostas:["Cristo Redentor","Pantanal","Cataratas do Iguaçu","Chapada Diamantina"],
+    correta:2
+},
+
+{
+    pergunta:"Qual árvore é símbolo do Paraná?",
+    respostas:["Ipê","Araucária","Mangueira","Jatobá"],
+    correta:1
+},
+
+{
+    pergunta:"Qual cidade é conhecida pelo planejamento urbano?",
+    respostas:["Curitiba","Londrina","Ponta Grossa","Foz"],
+    correta:0
+}
+
+];
+
+let perguntaAtual = 0;
+let pontuacao = 0;
+
+function carregarQuiz(){
+
+    const pergunta =
+    document.getElementById("perguntaQuiz");
+
+    const respostas =
+    document.getElementById("respostasQuiz");
+
+    if(!pergunta || !respostas) return;
+
+    pergunta.innerHTML =
+    perguntas[perguntaAtual].pergunta;
+
+    respostas.innerHTML = "";
+
+    perguntas[perguntaAtual].respostas.forEach(
+    (resposta,index)=>{
+
+        respostas.innerHTML += `
+        <button onclick="responderQuiz(${index})">
+        ${resposta}
+        </button>
+        `;
+
+    });
+
+}
+
+function responderQuiz(indice){
+
+    if(
+        indice ===
+        perguntas[perguntaAtual].correta
+    ){
+        pontuacao++;
     }
 
-});
+    perguntaAtual++;
 
+    if(perguntaAtual < perguntas.length){
 
-// ======================
-// QUIZ
-// ======================
-
-function quiz(resposta){
-
-    let resultado =
-    document.getElementById("resultadoQuiz");
-
-    if(resposta === "certo"){
-
-        resultado.innerHTML =
-        "✅ Parabéns! Você acertou.";
+        carregarQuiz();
 
     }else{
 
-        resultado.innerHTML =
-        "❌ Resposta incorreta.";
+        document.getElementById("perguntaQuiz")
+        .innerHTML =
+        `Você acertou ${pontuacao} de ${perguntas.length} perguntas!`;
+
+        document.getElementById("respostasQuiz")
+        .innerHTML = "";
 
     }
 
 }
 
+window.addEventListener("load", carregarQuiz);
 
 // ======================
 // TESOURO
@@ -75,8 +185,10 @@ Math.floor(Math.random() * 5) + 1;
 
 function bau(numero){
 
-    let resultado =
+    const resultado =
     document.getElementById("resultadoBau");
+
+    if(!resultado) return;
 
     if(numero === tesouro){
 
@@ -86,12 +198,11 @@ function bau(numero){
     }else{
 
         resultado.innerHTML =
-        "📦 Este baú estava vazio.";
+        "📦 Baú vazio. Continue procurando.";
 
     }
 
 }
-
 
 // ======================
 // CURIOSIDADES
@@ -99,103 +210,174 @@ function bau(numero){
 
 const curiosidades = [
 
-    "O Paraná possui 399 municípios.",
+"O Paraná possui 399 municípios.",
 
-    "As Cataratas do Iguaçu estão entre as maiores quedas d'água do planeta.",
+"As Cataratas do Iguaçu estão entre as maiores quedas d'água do mundo.",
 
-    "A Ilha do Mel é uma das áreas mais preservadas do litoral brasileiro.",
+"A Ilha do Mel é considerada um dos lugares mais preservados do Brasil.",
 
-    "Curitiba é referência mundial em planejamento urbano.",
+"Curitiba foi pioneira no sistema BRT.",
 
-    "O estado recebeu imigrantes de dezenas de nacionalidades diferentes."
+"O Paraná é um dos maiores produtores agrícolas do país.",
+
+"A araucária é símbolo oficial do estado.",
+
+"O Parque Nacional do Iguaçu é Patrimônio Natural da Humanidade.",
+
+"O estado recebeu milhares de imigrantes europeus.",
+
+"O Porto de Paranaguá é um dos mais importantes do Brasil.",
+
+"O Paraná faz fronteira com Argentina e Paraguai."
 
 ];
 
 function novaCuriosidade(){
 
+    const texto =
+    document.getElementById("curiosidade");
+
+    if(!texto) return;
+
     const indice =
     Math.floor(Math.random() * curiosidades.length);
 
-    document.getElementById("curiosidade")
-    .innerHTML =
+    texto.innerHTML =
     curiosidades[indice];
 
 }
 
-
 // ======================
-// GALERIA
+// LIGHTBOX
 // ======================
 
 function abrirImagem(src){
 
-    document.getElementById("lightbox")
-    .style.display = "flex";
+    const lightbox =
+    document.getElementById("lightbox");
 
-    document.getElementById("imagemExpandida")
-    .src = src;
+    const imagem =
+    document.getElementById("imagemExpandida");
+
+    if(!lightbox || !imagem) return;
+
+    imagem.src = src;
+
+    lightbox.style.display = "flex";
 
 }
 
 function fecharImagem(){
 
-    document.getElementById("lightbox")
-    .style.display = "none";
+    const lightbox =
+    document.getElementById("lightbox");
+
+    if(lightbox){
+
+        lightbox.style.display = "none";
+
+    }
 
 }
 
+document.addEventListener("keydown", (e)=>{
+
+    if(e.key === "Escape"){
+
+        fecharImagem();
+
+    }
+
+});
 
 // ======================
 // CONTADORES
 // ======================
 
-let m = 0;
-let h = 0;
-let a = 0;
-let t = 0;
+function animarContador(id, alvo, velocidade){
 
-const contador = setInterval(() => {
+    const elemento =
+    document.getElementById(id);
 
-    if(m < 399) m += 3;
-    if(h < 11000000) h += 85000;
-    if(a < 199315) a += 1500;
-    if(t < 10) t++;
+    if(!elemento) return;
 
-    const municipios =
-    document.getElementById("municipios");
+    let valor = 0;
 
-    const habitantes =
-    document.getElementById("habitantes");
+    const incremento =
+    Math.ceil(alvo / 100);
 
-    const area =
-    document.getElementById("area");
+    const intervalo =
+    setInterval(()=>{
 
-    const regioes =
-    document.getElementById("regioesTuristicas");
+        valor += incremento;
 
-    if(municipios) municipios.innerHTML = m;
+        if(valor >= alvo){
 
-    if(habitantes){
-        habitantes.innerHTML =
-        h.toLocaleString('pt-BR');
-    }
+            valor = alvo;
 
-    if(area){
-        area.innerHTML =
-        a.toLocaleString('pt-BR');
-    }
+            clearInterval(intervalo);
 
-    if(regioes){
-        regioes.innerHTML = t;
-    }
+        }
 
-    if(
-        m >= 399 &&
-        h >= 11000000 &&
-        a >= 199315 &&
-        t >= 10
-    ){
-        clearInterval(contador);
-    }
+        elemento.innerHTML =
+        valor.toLocaleString("pt-BR");
 
-}, 30);
+    }, velocidade);
+
+}
+
+window.addEventListener("load",()=>{
+
+    animarContador(
+    "municipios",
+    399,
+    20
+    );
+
+    animarContador(
+    "habitantes",
+    11000000,
+    20
+    );
+
+    animarContador(
+    "area",
+    199315,
+    20
+    );
+
+    animarContador(
+    "regioesTuristicas",
+    10,
+    150
+    );
+
+});
+
+// ======================
+// SCROLL SUAVE
+// ======================
+
+document.querySelectorAll('a[href^="#"]')
+.forEach(link => {
+
+    link.addEventListener("click", function(e){
+
+        const destino =
+        document.querySelector(
+        this.getAttribute("href")
+        );
+
+        if(!destino) return;
+
+        e.preventDefault();
+
+        destino.scrollIntoView({
+
+            behavior:"smooth"
+
+        });
+
+    });
+
+});
